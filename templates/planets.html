@@ -1,0 +1,32 @@
+<div class="container-fluid main_container">
+  <div ng-if="!loaded" class="loader"></div>
+  <div ng-if="loaded">
+    <div class="col-md-12 heading">
+      <div class="col-md-8 col-md-offset-2">
+        <span>Select Planets you want to Search..</span>
+      </div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-danger pull-right" ng-if="selected_planets.length>0" ng-click="reset()">Reset</button>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="col-md-2" ng-repeat="p in planets">
+        <div class="container-fluid planet_holder" style="{{!p.selected? 'background-color:#fff;' : 'background: linear-gradient(to bottom, #E100FF, #7F00FF);color:#fff;'}};" ng-click="select($index)">
+          <div class="" style="min-height:100px;max-height:100px;display:inline-block;padding-top:20px;margin-bottom:15px;">
+            <img src="assets/images/{{$index+1}}.png" width="80px">
+          </div>
+          <div class="" style="padding:10px;border-top:1px solid #ddd">
+            <span style="text-transform:capitalize;"><b>{{p.name}}</b> </span><br>
+            <span><b>Distance : </b>{{p.distance}} megamiles</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 text-center limit" ng-if="limit_exceed">
+      <span>You Cannot Search More than Four Planets at a time !!.</span>
+    </div>
+    <div class="col-md-12 text-center" style="margin-top:25px;" ng-if="selected_planets.length == 4">
+      <a href="#!vehicals" type="button" class="big_btn">Select Vehicals !</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,119 @@
+body {
+  margin: 0px;
+  background-color: #fff;
+  /* background-image: url(../images/back5.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%; */
+  color: #000;
+}
+
+.head_option a {
+  display: inline-block;
+  padding: 0 10px;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.head_option a:hover {
+  color: #7F00FF;
+}
+
+.head_option a:first-child {
+  border-right: 1px solid #000;
+}
+
+.heading {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  min-height: 70px;
+}
+.heading span{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.destination_container {
+  text-align: center !important;
+}
+
+.loader:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 70px;
+  width: 70px;
+  margin-top: -30px;
+  margin-left: -30px;
+  border-radius: 50%;
+  border-top: 4px solid #59a3f0;
+  border-right: 2px solid transparent;
+  animation: loader 0.7s linear infinite;
+}
+
+@keyframes loader {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.planets {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.planet_holder {
+  width: 200px;
+  height: 180px;
+  border-radius: 10px;
+  border-top-right-radius: 40px;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  cursor: pointer;
+  color: #000;
+  box-shadow: 5px 5px 8px #8c848e;
+}
+
+.overlay {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(1, 92, 228, 0.77);
+  border-radius: 10px;
+  border-top-right-radius: 40px;
+  margin: 0px;
+  padding: 0px;
+  opacity: 0;
+}
+
+.limit {
+  color: #f70000;
+  font-size: 18px;
+  padding-top: 20px;
+  letter-spacing: 1px;
+}
+
+.big_btn {
+  width: 250px;
+  padding: 10px;
+  border: 1px solid #6c6c6b;
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  border-top-right-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.big_btn:hover {
+  border: 0px solid #6c6c6b;
+  background: linear-gradient(to right, #7F00FF, #E100FF);
+  color: #fff;
+  text-decoration: none;
+}
