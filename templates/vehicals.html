@@ -1,3 +1,52 @@
-<div class="container-fluid">
-  <h1>select your ride</h1>
+<div class="container-fluid" ng-if="!loaded">
+  <div class="loader"></div>
+</div>
+<div class="container-fluid" ng-if="loaded">
+  <div class="col-md-12 text-center" ng-if="selected_planet.length == 0 || selected_planet == undefined" style="padding-top:25px;margin-top:25px;">
+    <img src="assets/images/warning.png" width="100" alt="warning"><br>
+    <h1>You have not Selected the planets to search!!</h1><br>
+    <a href="#!planets" type="button" class="big_btn">Go Back.</a>
+  </div>
+  <div class="" ng-if="selected_planet.length > 0">
+
+    <div class="col-md-12 droptarget">
+      <div class="col-md-3 col-sm-3 col-xs-3" ng-repeat="v in vehical" style="margin:15px 0px;">
+        <div class="container-fluid vehical">
+          <!-- ng-click="drag($index,v.name)" -->
+          <div class="pull-right label label-{{v.total_no == 0 ? 'danger' : 'success'}}">
+              <span><b>{{v.total_no}}</b></span>
+          </div>
+          <div class="col-md-12" style="padding-top:10px;">
+            <img src="assets/images/{{v.name}}.png" width="100;">
+          </div>
+          <div class="col-md-12">
+            <span><b>Name : </b>{{v.name}}</span><br>
+            <span><b>Max_distance : </b>{{v.max_distance}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-12 droptarget">
+      <div class="col-md-3 col-sm-6 col-xs-6" ng-repeat="s in selected_planet" style="margin:15px 0px;">
+        <div class="container-fluid selection">
+          <div class="planet_img col-md-12" style="min-height:50px;max-height:100px;display:inline-block;padding-top:20px;margin-bottom:25px;">
+            <img src="assets/images/{{s.name}}.png" width="100;">
+          </div>
+          <div class="planet_info col-md-12" style="padding-bottom:15px;">
+            <!-- border-bottom:1px solid #9cb8bb; -->
+            <span style="text-transform:capitalize;"><b>{{s.name}}</b> </span><br>
+            <span><b>Distance : </b>{{s.distance}} megamiles</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 text-center">
+      <a href="#!result" class="big_btn">Start Search</a>
+    </div>
+
+
+  </div>
 </div>

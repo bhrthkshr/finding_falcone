@@ -1,9 +1,6 @@
 body {
   margin: 0px;
   background-color: #fff;
-  /* background-image: url(../images/back5.jpg);
-  background-repeat: no-repeat;
-  background-size: 100% 100%; */
   color: #000;
 }
 
@@ -29,9 +26,17 @@ body {
   text-align: center;
   min-height: 70px;
 }
-.heading span{
+
+.heading span {
   font-size: 18px;
   font-weight: bold;
+}
+
+.main_container {
+  padding: 15px;
+  margin: 15px;
+  margin-top: 0px;
+  padding-top: 0px;
 }
 
 .destination_container {
@@ -60,43 +65,46 @@ body {
   }
 }
 
-.planets {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
 .planet_holder {
-  width: 200px;
-  height: 180px;
+  min-height: 250px;
+  max-height: 280px;
   border-radius: 10px;
   border-top-right-radius: 40px;
   text-align: center;
-  margin: 0px;
-  padding: 0px;
   cursor: pointer;
   color: #000;
   box-shadow: 5px 5px 8px #8c848e;
 }
 
-.overlay {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background-color: rgba(1, 92, 228, 0.77);
+.selection {
+  min-height: 180px;
+  max-height: 450px;
   border-radius: 10px;
   border-top-right-radius: 40px;
-  margin: 0px;
-  padding: 0px;
-  opacity: 0;
+  text-align: center;
+  cursor: pointer;
+  color: #000;
+  box-shadow: 5px 5px 8px #8c848e;
+}
+
+.vehical {
+  min-height: 200px;
+  max-height: 220px;
+  padding-top: 10px;
+  padding-right: 15px;
+  border-radius: 20px;
+  /* border-top-right-radius: 40px; */
+  text-align: center;
+  cursor: pointer;
+  color: #000;
+  box-shadow: 5px 5px 8px #8c848e;
 }
 
 .limit {
   color: #f70000;
   font-size: 18px;
-  padding-top: 20px;
   letter-spacing: 1px;
+  margin-bottom: 15px;
 }
 
 .big_btn {
@@ -116,4 +124,16 @@ body {
   background: linear-gradient(to right, #7F00FF, #E100FF);
   color: #fff;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 992px) {
+  * {
+    font-size: 2rem;
+  }
+
+  .vehical {
+    min-height: 250px;
+    max-height: 270px;
+    padding-top: 10px;
+  }
 }
