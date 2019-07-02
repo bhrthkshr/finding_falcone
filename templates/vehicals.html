@@ -9,9 +9,9 @@
   </div>
   <div class="" ng-if="selected_planet.length > 0">
 
-    <div class="col-md-12 droptarget">
-      <div class="col-md-3 col-sm-3 col-xs-3" ng-repeat="v in vehical" style="margin:15px 0px;">
-        <div class="container-fluid vehical">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="col-md-3 col-sm-3 col-xs-3" ng-repeat="v in vehicals track by $index" style="margin:15px 0px;" ng-drag="true" ng-drag-data="v" data-allow-transform="true">
+        <div class="container-fluid vehical draggable">
           <!-- ng-click="drag($index,v.name)" -->
           <div class="pull-right label label-{{v.total_no == 0 ? 'danger' : 'success'}}">
               <span><b>{{v.total_no}}</b></span>
@@ -28,25 +28,40 @@
     </div>
 
 
-    <div class="col-md-12 droptarget">
-      <div class="col-md-3 col-sm-6 col-xs-6" ng-repeat="s in selected_planet" style="margin:15px 0px;">
+    <div class="col-md-12" style="margin-bottom:40px;">
+      <div class="col-md-3 col-sm-6 col-xs-6" ng-repeat="s in selected_planet" style="margin:15px 0px;" ng-drop="true" ng-drop-success="onDropComplete($data,$event , $index);">
         <div class="container-fluid selection">
           <div class="planet_img col-md-12" style="min-height:50px;max-height:100px;display:inline-block;padding-top:20px;margin-bottom:25px;">
             <img src="assets/images/{{s.name}}.png" width="100;">
           </div>
-          <div class="planet_info col-md-12" style="padding-bottom:15px;">
-            <!-- border-bottom:1px solid #9cb8bb; -->
+          <div class="planet_info col-md-12" style="margin-bottom:15px; border-bottom:1px solid #9cb8bb;">
             <span style="text-transform:capitalize;"><b>{{s.name}}</b> </span><br>
             <span><b>Distance : </b>{{s.distance}} megamiles</span>
+          </div>
+          <div class="col-md-12 text-center">
+            <div class="container-fluid {{s.vehical.length==1? 'dropped_vehical':'not_dropped'}}">
+              <div class="col-md-4" style="float:left;position:relative;">
+                  <img src="assets/images/{{s.vehical[0].name}}.png" width="80">
+              </div>
+              <div class="col-md-8" style="text-align:left;padding-left:15px;">
+                <span><b>{{s.vehical[0].name}}</b></span><br>
+                <span><b>{{s.vehical[0].speed}} mM/hr</b></span><br>
+                <span><b>{{s.vehical[0].max_distance}} mM</b></span>
+              </div>
+              <div class="col-md-12 text-right">
+                <div class="label label-danger" ng-click="undo_vehical(s.vehical[0],$index)">
+                  <span>x</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="col-md-12 text-center">
+    <div class="col-md-12 text-center" ng-if="false">
       <a href="#!result" class="big_btn">Start Search</a>
     </div>
-
 
   </div>
 </div>

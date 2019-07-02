@@ -1,5 +1,4 @@
-var app = angular.module("Finding_Falcone", ["ngRoute"]);
-
+var app = angular.module("Finding_Falcone", ["ngRoute", "ngDraggable"]);
 app.config(function($routeProvider) {
   $routeProvider
     .when("/", {
@@ -79,49 +78,60 @@ app.controller("planet.controller", function($scope, $http, $rootScope) {
 
 app.controller("vehical.controller", function($scope, $http) {
   $scope.selected_planet = $scope.selected_planets;
-  console.log($scope.selected_planets);
-
-  $scope.vehical = [];
-  $http({
-    method: 'GET',
-    url: 'https://findfalcone.herokuapp.com/vehicles'
-  }).then(function successCallback(response) {
-    $scope.data = response.data;
+  if ($scope.selected_planet) {
+    for (var i = 0; i < $scope.selected_planet.length; i++) {
+      $scope.selected_planet[i].vehical = [];
+    }
+    $scope.vehicals = [];
+    $http({
+      method: 'GET',
+      url: 'https://findfalcone.herokuapp.com/vehicles'
+    }).then(function successCallback(response) {
+      $scope.data = response.data;
+      $scope.loaded = true;
+      for (var i = 0; i < $scope.data.length; i++) {
+        $scope.vehicals.push($scope.data[i]);
+      }
+    }, function errorCallback(response) {
+      document.write('<h1 style="text-align:center">Something was not Found Error:404!!</h1>');
+    });
+  } else {
     $scope.loaded = true;
-    for (var i = 0; i < $scope.data.length; i++) {
-      $scope.vehical.push($scope.data[i]);
-      $scope.vehical[i].selected = false;
+    console.log('planets got cleared or was not loaded');
+  }
+
+  $scope.onDropComplete = function(data, evt, newState) {
+    console.log("drop complete");
+    if (data.total_no != 0) {
+      $scope.check_distance(data, newState);
     }
-  }, function errorCallback(response) {
-    document.write('<h1 style="text-align:center">Something was not Found Error:404!!</h1>');
-  });
-  console.log($scope.vehical, '000000000000');
-
-  $scope.drag = function(idx, name) {
-    console.log("vehical---", idx, name);
-    if ($scope.vehical[idx].total_no != 0) {
-      $scope.vehical[idx].total_no -= 1;
+    if (data.total_no == 0) {
+      var pos = $scope.vehicals.map(function(e) {
+        return e.name;
+      }).indexOf(data.name);
+      $scope.vehicals.splice(pos, 1);
     }
   }
 
-$scope.dragthis =  function(event) {
-    console.log('draggggingg');
-    event.dataTransfer.setData("Text", event.target.id);
+  $scope.check_distance = function(veh, idx) {
+    // console.log("came to check distance of ", veh.name, 'in planet', idx);
+    if (veh.max_distance >= $scope.selected_planet[idx].distance) {
+      $scope.selected_planet[idx].vehical=[veh];
+      return veh.total_no -= 1
+    }
+    // else {
+    //   console.log('cannot got to this planet with this shit');
+    // }
+  }
+
+  $scope.undo_vehical = function(vInfo,idx) {
+    console.log(vInfo,'------came back after removing');
+    $scope.vehicals.push(vInfo);
+    $scope.selected_planet[idx].vehical.splice(0,1);
+    console.log($scope.selected_planet[idx]);
   }
 
 
-  $scope.dragging = function(event) {
-    console.log("The p element is being dragged");
-  }
 
-  $scope.allowDrop = function(event) {
-    event.preventDefault();
-  }
 
-  $scope.drop = function(event) {
-    event.preventDefault();
-    var data = event.dataTransfer.getData("Text");
-    event.target.appendChild(document.getElementById(data));
-    console.log("The p element was dropped");
-  }
 });
