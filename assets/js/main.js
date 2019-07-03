@@ -25,26 +25,6 @@ app.controller("main.controller", function($scope, $http) {
 });
 
 app.controller("planet.controller", function($scope, $http, $rootScope) {
-
-  $scope.local_planets = [{
-    name: 'Donlon',
-    distance: '100',
-  }, {
-    name: 'Enchai',
-    distance: '200',
-  }, {
-    name: 'Jebing',
-    distance: '300',
-  }, {
-    name: 'Sapir',
-    distance: '400',
-  }, {
-    name: 'Lerbin',
-    distance: '500',
-  }, {
-    name: 'Pingasor',
-    distance: '600',
-  }]
   console.log('plannnnnnnnnneeeee');
   $scope.loaded = false;
   $scope.planets = [];
@@ -149,6 +129,7 @@ app.controller("vehical.controller", function($scope, $http) {
   $scope.onDropComplete = function(data, evt, newState) {
     console.log("drop complete");
     var same_data = $scope.check_for_same_vehical(newState, data);
+    $scope.calc_time($scope.selected_planet[newState].distance,data.speed)
     if (same_data != -1) {
       console.log('sameeeeeeeeeeeee', data.name, "----", same_data);
     } else if (same_data == -1 && $scope.selected_planet[newState].vehical.length == 0) {
@@ -178,7 +159,7 @@ app.controller("vehical.controller", function($scope, $http) {
       if (is_existing != -1) {
         $scope.vehicals[is_existing].total_no += 1;
       } else if (is_existing == -1) {
-        temp.total_no=1;
+        temp.total_no = 1;
         $scope.vehicals.push(temp)
       }
       // }
@@ -213,6 +194,27 @@ app.controller("vehical.controller", function($scope, $http) {
   }
 
 
+$scope.calc_time = function(distance,speed) {
+  console.log(distance,'----',speed);
+  //time = distance/speed
+  $scope.time = distance/speed;
+  console.log($scope.time);
+}
+});
 
+
+app.controller("result.controller", function($scope, $http, $rootScope) {
+  $scope.final_selection = $scope.selected_planets;
+  $http({
+    method: 'POST',
+    url: 'https://findfalcone.herokuapp.com/token',
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(function successCallback(response) {
+    $scope.token = response.data.token;
+  }, function errorCallback(response) {
+    document.write('<h1 style="text-align:center">Something was not Found Error:404!!</h1>');
+  });
 
 });

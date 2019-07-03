@@ -127,10 +127,14 @@ body {
 }
 
 .label {
-  /* width: 20px;
-  height: 20px; */
-  border-radius: 50%;
+  /*
+  height: 20px;
+  */
+  border-radius: 5px;
   padding: 5px;
+}
+.label-danger{
+  width: 100%;
 }
 
 .dropped_vehical {
