@@ -14,7 +14,7 @@
         <div class="container-fluid vehical draggable">
           <!-- ng-click="drag($index,v.name)" -->
           <div class="pull-right label label-{{v.total_no == 0 ? 'danger' : 'success'}}">
-              <span><b>{{v.total_no}}</b></span>
+            <span><b>{{v.total_no}}</b></span>
           </div>
           <div class="col-md-12" style="padding-top:10px;">
             <img src="assets/images/{{v.name}}.png" width="100;">
@@ -38,21 +38,24 @@
             <span style="text-transform:capitalize;"><b>{{s.name}}</b> </span><br>
             <span><b>Distance : </b>{{s.distance}} megamiles</span>
           </div>
-          <div class="col-md-12 text-center">
-            <div class="container-fluid {{s.vehical.length==1? 'dropped_vehical':'not_dropped'}}">
-              <div class="col-md-4" style="float:left;position:relative;">
-                  <img src="assets/images/{{s.vehical[0].name}}.png" width="80">
-              </div>
-              <div class="col-md-8" style="text-align:left;padding-left:15px;">
-                <span><b>{{s.vehical[0].name}}</b></span><br>
-                <span><b>{{s.vehical[0].speed}} mM/hr</b></span><br>
-                <span><b>{{s.vehical[0].max_distance}} mM</b></span>
-              </div>
-              <div class="col-md-12 text-right">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="container-fluid {{s.vehical.length==1? 'dropped_vehical':'not_dropped'}}" ng-drag="true" ng-drag-data="s.vehical[0]" data-allow-transform="true">
+              <!-- <div class="col-md-12 col-sm-12 col-xs-12 text-right" style="padding:0px;margin-bottom:15px;">
                 <div class="label label-danger" ng-click="undo_vehical(s.vehical[0],$index)">
-                  <span>x</span>
+                  <span>
+                    <i class="fa fa-times"></i>
+                  </span>
                 </div>
+              </div> -->
+              <div class="col-md-4 col-sm-4 col-xs-4" style="position:relative;padding:0px;">
+                <img src="assets/images/{{s.vehical[0].name}}.png" width="80">
               </div>
+              <div class="col-md-8 col-sm-8 col-xs-8" style="text-align:center;padding-left:15px;">
+                <span><b>{{s.vehical[0].name}}</b></span><br>
+                <span><b>{{s.vehical[0].speed}}</b> Mmi/h</span><br>
+                <span><b>{{s.vehical[0].max_distance}}</b> Mmi</span>
+              </div>
+
             </div>
           </div>
         </div>
