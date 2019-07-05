@@ -78,25 +78,6 @@ body {
   border-right: 1px solid #000;
 }
 
-.heading {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  text-align: center;
-  min-height: 70px;
-}
-
-.unit {
-  display: block;
-}
-
-.heading span {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.destination_container {
-  text-align: center !important;
-}
 
 .loader:before {
   content: "";
@@ -203,9 +184,6 @@ body {
 }
 
 .label {
-  /*
-  height: 20px;
-  */
   border-radius: 5px;
   padding: 5px;
 }

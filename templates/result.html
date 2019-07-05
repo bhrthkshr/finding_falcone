@@ -1,12 +1,9 @@
 <div class="container-fluid" style="padding:0px;" ng-if="!loaded">
   <div class="loader"></div>
 </div>
-
 <div class="container-fluid" style="padding:0px;" ng-if="loaded">
-
   <div class="col-md-6 col-sm-12 col-xs-12 result_background">
     <div class="mob_only" style="color:#fff;background-image:linear-gradient( rgba(236, 236, 236, 0.22), rgba(236, 236, 236, 0.22));min-height:300px;">
-      <!-- <span style="font-size:22px;font-weight:bolder; dis">Result</span> -->
     </div>
   </div>
   <div class="col-md-6 col-sm-12 col-xs-12 min_spacing text-center" ng-if="failed">
@@ -18,22 +15,17 @@
     </div>
   </div>
   <div class="col-md-6 col-sm-12 col-xs-12 text-center" style="min-height:250px;padding:0px;margin:0px;" ng-if="!failed">
-    <!-- <h1>Results</h1>
-    <p>Found AI Falcone in this planet</p>
-    <p><b>Token : </b>{{token}}</p>
-    <div class="col-md-12" ng-repeat="f in final_selection">
-      <p>{{f}}</p>
-    -->
     <div class="col-md-12 col-sm-12 col-xs-12" ng-if="results.status == 'success'">
       <h1 style="color:rgb(168, 68, 222)">All Hail King Shan !!!</h1>
+      <div class="col-md-12">
+        <h2>Found AI Falcone</h2>
+      </div>
       <div class="col-md-6">
-        <h2>Found AI Falcone in Planet</h2>
-        <h1>{{results.planet_name}}</h1>
+        <h2>In Planet <b>{{results.planet_name}}</b></h2>
         <img src="assets/images/{{results.planet_name}}.png">
       </div>
       <div class="col-md-6">
-        <h2>with</h2>
-        <h1>{{veh_name}}</h1>
+        <h2>with <b>{{veh_name}}</b></h2>
         <img src="assets/images/{{veh_name}}.png" width="100">
       </div>
       <div class="col-md-12">
@@ -41,19 +33,14 @@
         <h1>{{time_taken}} Hrs</h1>
       </div>
     </div>
-
-
     <div class="col-md-12 col-sm-12 col-xs-12" ng-if="results.status == 'false'">
       <h2>Did not find AI Falcone</h2>
       <p style="color:#9f39c1">Better Luck Next Time!!!</p>
     </div>
-
     <div class="col-md-12 col-sm-12 col-xs-12 min_spacing">
       <a href="#!planets" type="button" class="big_btn">
         Restart
       </a>
     </div>
-
-
   </div>
 </div>
