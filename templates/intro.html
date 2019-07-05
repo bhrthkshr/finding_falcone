@@ -1,25 +1,62 @@
 <style media="screen">
-  .head_option {
-    display: none;
+  .home_init {
+    display: none !important;
   }
 </style>
-<div class="container-fluid">
-  <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12" style="padding-top:55px;">
-    <h1>King Shan Finding Al Falcone</h1>
+<div class="container-fluid no_padding" style="margin-bottom:40px;">
+  <div class="col-md-12 col-sm-12 col-xs-12 hero_background"style="background-image:url('assets/images/intro_back.jpg')">
+    <div class="" style="color:#fff;padding:20px 15px;background-image:linear-gradient( rgba(236, 236, 236, 0.32), rgba(236, 236, 236, 0.32));min-height:300px;">
+      <span style="font-size:8em;font-weight:bolder;">Finding Falcone</span>
+    </div>
+  </div>
+  <div class="col-md-12 col-sm-12 col-xs-12 space_color">
+    <h1>
+      Welcome to Planet Lengaburu
+    </h1>
+  </div>
+  <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 description min_spacing">
     <p>
-      Our coding challenges are set in the planet of Lengaburu.
       After the recent Falicornian war, King Shan has exiled Queen Al Falcone for 15 years.
       However, if he finds her before the 15 years are up, she has to go into exile for another 15 years!
     </p>
     <p>
-      King Shan has received intelligence that Al Falcone is hiding in one of six neighbouring planets. In this problem you need to build a UI through which King Shan can choose the planets to search, and the vehicles to use in Finding Falcone. See
-      more details on planets & vehicles.
+      King Shan has received intelligence that Al Falcone is hiding in one of six neighbouring planets.
+      However he has limited resources at his disposal & can send his army to only four of these planets.
+      <ul class="list-unstyled list">
+        <li>DonLon</li>
+        <li>Enchai</li>
+        <li>Jebing</li>
+        <li>Sapir</li>
+        <li>Lerbin</li>
+        <li>Pingasor</li>
+      </ul>
     </p>
     <p>
-      All geektrust problems are meant to be solved offline looking at considerations of OOPS, readability and simplicity. Download challenge to see planets, vehicles & mockups or just view full problem
+      You need to help King Shan to choose the planets and the vehicles to search for Queen AI Falcone.
     </p>
   </div>
-  <div class="col-md-12 col-sm-12 col-xs-12 text-center" style="padding:15px;">
-    <a href="#!planets" type="button" class="big_btn">Begin Search !</a>
+  <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+    <a href="#!planets" type="button" class="big_btn">Begin Search</a>
+  </div>
+  <div class="container-fluid">
+    <div class="col-md-12 col-sm-12 col-xs-12 min_spacing">
+      <h1 class="space_color">Instructions</h1>
+      <ul>
+        <li>Select the planets you want to search in for AI falcone.
+          <ul class="color">
+            <li>All planets at varying distances from Lengaburu.</li>
+            <li>you can Select any four planets out of six planets</li>
+          </ul>
+        </li>
+        <li>Drag and Drop the vehicle you want to use to send to the planets you selected.
+          <ul class="color">
+            <li>The units of each vehicle type vary.</li>
+            <li>All have different ranges (maximum distance it can travel).</li>
+            <li>If the range for a vehicle is lesser than the distance to the planet, it cannot be chosen for going to the planet.</li>
+            <li>All have different speed.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

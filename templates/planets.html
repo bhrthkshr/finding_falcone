@@ -1,16 +1,21 @@
-<div class="container-fluid main_container">
+<div class="container-fluid no_padding" style="margin-bottom:40px;">
   <div ng-if="!loaded" class="loader"></div>
   <div ng-if="loaded">
-    <div class="col-md-12 heading">
-      <div class="col-md-8 col-md-offset-2">
-        <span>Select Planets you want to Search..</span>
-      </div>
-      <div class="col-md-2">
-        <button type="button" class="btn btn-danger pull-right" ng-if="selected_planets.length>0" ng-click="reset()">Reset</button>
+    <div class="col-md-12 col-sm-12 col-xs-12 hero_background" style="background-image:url('assets/images/planet_back.jpg')">
+      <div class="hero_text">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <span style="font-size:8em;font-weight:bolder;">Planets</span>
+          <p>Select the Planets you want search.</p>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+          <div class="min_spacing">
+            <a type="button" class="btn_reset" ng-if="selected_planets.length>0" ng-click="reset()">Reset</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom:50px;">
-      <div class="col-md-2 col-sm-6 col-xs-6" ng-repeat="p in planets" style="margin:15px 0px;">
+    <div class="col-md-12 col-sm-12 col-xs-12 min_spacing">
+      <div class="col-md-2 col-sm-6 col-xs-6" ng-repeat="p in planets" style="margin:10px 0px;">
         <div class="container-fluid planet_holder" style="{{!p.selected? 'background-color:#fff;' : 'background: linear-gradient(to bottom, #E100FF, #7F00FF);color:#fff;'}};" ng-click="select($index)">
           <div class="planet_img col-md-12" style="min-height:80px;max-height:150px;display:inline-block;padding-top:20px;margin-bottom:25px;">
             <img src="assets/images/{{p.name}}.png" width="100%;">
@@ -22,12 +27,12 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid">
-      <div class="col-md-12 text-center limit" ng-if="limit_exceed">
+    <div class="container-fluid min_spacing">
+      <div class="col-md-12 col-sm-12 colxs-12 text-center limit" ng-if="limit_exceed">
         <span>You Cannot Search More than Four Planets at a time !!.</span>
       </div>
-      <div class="col-md-12 text-center" ng-if="selected_planets.length == 4">
-        <a href="#!vehicals" type="button" class="big_btn">Select Vehicals !</a>
+      <div class="col-md-12 col-sm-12 col-xs-12 min_spacing text-center" ng-if="selected_planets.length == 4">
+        <a href="#!vehicles" type="button" class="big_btn">Select vehicles !</a>
       </div>
     </div>
   </div>

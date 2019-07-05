@@ -2,6 +2,46 @@ body {
   margin: 0px;
   background-color: #fff;
   color: #000;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+.no_padding {
+  padding: 0px;
+}
+
+.min_spacing {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.space_color {
+  color: #913ba7;
+  font-size: 2em;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.description {
+  font-family: fantasy;
+}
+
+.hero_background {
+  background-size: cover;
+  min-height: 240px;
+  background-repeat: no-repeat;
+  padding: 0px;
+}
+
+.hero_text {
+  color: #fff;
+  padding: 20px 15px;
+  background-image: linear-gradient(rgba(236, 236, 236, 0.45), rgba(236, 236, 236, 0.45));
+  min-height: 240px;
+}
+
+.hero_text p {
+  padding-left: 30px;
+  font-weight: bold;
 }
 
 .head_option a {
@@ -10,6 +50,24 @@ body {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+  font-weight: bold;
+}
+
+.list li {
+  display: inline-block;
+  padding: 0 10px;
+  color: #5d1769;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.color {
+  color: #ba196b;
+}
+
+.metrics {
+  font-size: 1em;
+  color: #ba196b;
 }
 
 .head_option a:hover {
@@ -27,16 +85,13 @@ body {
   min-height: 70px;
 }
 
+.unit {
+  display: block;
+}
+
 .heading span {
   font-size: 18px;
   font-weight: bold;
-}
-
-.main_container {
-  padding: 15px;
-  margin: 15px;
-  margin-top: 0px;
-  padding-top: 0px;
 }
 
 .destination_container {
@@ -77,7 +132,7 @@ body {
 }
 
 .selection {
-  min-height: 340px;
+  min-height: 360px;
   max-height: 450px;
   border-radius: 10px;
   border-top-right-radius: 40px;
@@ -87,13 +142,13 @@ body {
   box-shadow: 5px 5px 8px #8c848e;
 }
 
-.vehical {
-  min-height: 200px;
-  max-height: 220px;
+.vehicle {
+  min-height: 220px;
+  max-height: 240px;
   padding-top: 10px;
-  padding-right: 15px;
+  padding-bottom: 20px;
   border-radius: 20px;
-  /* border-top-right-radius: 40px; */
+  background-color: #fff;
   text-align: center;
   cursor: pointer;
   color: #000;
@@ -108,8 +163,8 @@ body {
 }
 
 .big_btn {
-  width: 250px;
-  padding: 10px;
+  width: 350px;
+  padding: 15px 40px;
   border: 1px solid #6c6c6b;
   background-color: #fff;
   color: #000;
@@ -117,11 +172,32 @@ body {
   border-top-right-radius: 20px;
   font-weight: bold;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .big_btn:hover {
   border: 0px solid #6c6c6b;
   background: linear-gradient(to right, #7F00FF, #E100FF);
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn_reset {
+  width: 350px;
+  padding: 10px 40px;
+  border: 1px solid #fff;
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  border-top-right-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn_reset:hover {
+  border: 0px solid #6c6c6b;
+  background: linear-gradient(to right, #ff00e6, #ff3600);
   color: #fff;
   text-decoration: none;
 }
@@ -133,11 +209,12 @@ body {
   border-radius: 5px;
   padding: 5px;
 }
-.label-danger{
+
+.label-danger {
   width: 100%;
 }
 
-.dropped_vehical {
+.dropped_vehicle {
   min-height: 140px;
   max-height: 150px;
   padding-top: 5px;
@@ -151,20 +228,74 @@ body {
   display: none;
 }
 
+.mobile_font {
+  font-size: 3rem;
+}
+
+.mob_only {
+  display: none;
+}
+
+.result_background {
+  background-image: url('../images/result_back.png');
+  background-size: 100% 100%;
+  min-height: 580px;
+  background-repeat: no-repeat;
+  margin-top: 0.036%;
+  padding: 0px;
+}
+
 @media only screen and (max-width: 992px) {
   * {
     font-size: 2rem;
   }
 
-  .vehical {
-    min-height: 260px;
-    max-height: 280px;
+  .hero_background {
+    min-height: 400px;
+  }
+
+  .hero_text {
+    min-height: 400px;
+  }
+
+  .min_spacing {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .mobile_font {
+    font-size: 4rem;
+  }
+
+  .metrics {
+    font-size: 0.8em;
+    padding: 0px;
+  }
+
+  .result_background {
+    background-image: url('../images/mob_back_result.jpg');
+    background-size: cover;
+    min-height: 300px;
+    background-repeat: no-repeat;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .mob_only {
+    padding: 0px;
+    margin: 0px;
+    display: block;
+  }
+
+  .vehicle {
+    min-height: 280px;
+    max-height: 300px;
     padding-top: 10px;
   }
 
   .selection {
-    min-height: 360px;
-    max-height: 380px;
+    min-height: 400px;
+    max-height: 420px;
     padding-bottom: 15px;
   }
 }
