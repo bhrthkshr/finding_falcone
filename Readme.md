@@ -10,7 +10,19 @@ can reached at https://bhrthkshr.github.io/finding_falcone/#!/
     - All have different ranges (maximum distance it can travel).
     - If the range for a vehicle is lesser than the distance to the planet, it
          cannot be chosen for going to the planet.
-
+         
+Screenshots:
+1.Main page and Instructions
+![](screenshots/main_page.png)
+2.Planets and Selecting any 4 planets out of 6.
+![](screenshots/planets.png)
+![](screenshots/select_planets.png)
+3.Vehicles and Selecting the vehicles by dragging and droping on to the desired planet.
+![](screenshots/vehicals.png)
+![](screenshots/vehical_select.png)
+4.Result Page
+![](screenshots/result.png)
+![](screenshots/fail.png)
 
 Image Credits:
 1. Freepik - https://www.freepik.com
