@@ -10,3 +10,8 @@ can reached at https://bhrthkshr.github.io/finding_falcone/#!/
     - All have different ranges (maximum distance it can travel).
     - If the range for a vehicle is lesser than the distance to the planet, it
          cannot be chosen for going to the planet.
+
+
+Image Credits:
+1. Freepik - https://www.freepik.com
+2. Uihere - https://www.uihere.com
